@@ -11,7 +11,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "hardware")
+@RequestMapping(value = "hardware", produces = MediaType.APPLICATION_JSON_VALUE)
 public class HardwareController {
     @Autowired
     HardwareService hardwareService;
