@@ -3,7 +3,6 @@ package com.belajar.service;
 import java.util.List;
 
 import com.belajar.model.Hardware;
-
 public interface HardwareService {
 
     List<Hardware> findAll();

@@ -1,16 +1,14 @@
 package com.belajar.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Setter //Untuk Set Paramater
 @Getter //Untuk Get Paramater
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder //
 @Entity //Untuk Memberikan Identitas Data yang mengakses ke Database
 public class Hardware {
 	
@@ -30,9 +28,17 @@ public class Hardware {
 	@Column(name = "jenis_garansi")
 	private String jenisGaransi;
 
-	public Long getId() {
-		// TODO Auto-generated method stub
-		return this.id;
+	@Override
+	public String toString() {
+		return "Hardware [id=" + id + ", tipe=" + tipe + ", merk=" + merk + ", harga=" + harga + ", jenisGaransi="
+				+ jenisGaransi + "]";
 	}
+
+//	public Long getId() {
+//		// TODO Auto-generated method stub
+//		return this.id;
+//	}
+	
+	
 	
 }

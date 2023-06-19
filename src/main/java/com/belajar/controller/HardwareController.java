@@ -1,6 +1,8 @@
 package com.belajar.controller;
 
 import com.belajar.model.Hardware;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.belajar.service.HardwareService;
 import com.belajar.util.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,10 +11,11 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.context.annotation.*;
 @RestController
 @RequestMapping(value = "hardware", produces = MediaType.APPLICATION_JSON_VALUE)
 public class HardwareController {
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
     @Autowired
     HardwareService hardwareService;
 
@@ -22,6 +25,7 @@ public class HardwareController {
     ResponseEntity<Response> create (@RequestBody @Validated Hardware hardware) /*Mengambil Request data dari Body dan melakukan Proses Validasi*/
     {
         /*Informasi Tentang Nama Method*/
+    	log.info("berhasil masuk controller");
         String nameofCurrMethod = new Throwable()
                 .getStackTrace()[0]
                 .getMethodName();
@@ -29,6 +33,7 @@ public class HardwareController {
         Response response = new Response();
         response.setService(this.getClass().getName() + nameofCurrMethod);
         response.setMessage("Berhasil Membuat Data");
+        System.out.println("-----asdfgbfvdefrghngbfedffbgfe-------------efvvedfvedw----");
 
         /*Set Data Dari Database*/
         response.setData(hardwareService.create(hardware));

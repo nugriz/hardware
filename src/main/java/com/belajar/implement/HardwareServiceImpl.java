@@ -27,7 +27,9 @@ public class HardwareServiceImpl implements HardwareService {
 
     @Override
     public Hardware update(Long id, Hardware hardware) {
-        hardware.getId();
+    	hardwareRepository.findById(id);
+
+		hardware.setId(id);
         return hardwareRepository.save(hardware);
     }
 
